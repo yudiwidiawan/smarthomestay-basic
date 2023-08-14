@@ -1,0 +1,610 @@
+{
+	"info": {
+		"_postman_id": "be10ec98-01d7-47f6-845a-69d9dee48d3b",
+		"name": "Smart Home Stay",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21103089"
+	},
+	"item": [
+		{
+			"name": "Room",
+			"item": [
+				{
+					"name": "Facility",
+					"item": [
+						{
+							"name": "Get List Facilities",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8888/facilities",
+									"host": [
+										"localhost"
+									],
+									"port": "8888",
+									"path": [
+										"facilities"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add New Facility",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"BATH TUB\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8888/facilities",
+									"host": [
+										"localhost"
+									],
+									"port": "8888",
+									"path": [
+										"facilities"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Facility",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8888/facilities?id=4",
+									"host": [
+										"localhost"
+									],
+									"port": "8888",
+									"path": [
+										"facilities"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get List Rooms",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ5dWRpYWRtaW5AZ21haWwuY29tIiwiZXhwIjoxNjg1MjI0ODc2LCJpYXQiOjE2ODUxODg4NzYsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJST0xFX0FETUlOIn1dfQ.E6UC8UcFgzFHYWWHc6Y4ROx0ztoANFafwMY2ooT-B58",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8888/rooms",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"rooms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Rooms",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ5dWRpYWRtaW5AZ21haWwuY29tIiwiZXhwIjoxNjg1MjY4OTYxLCJpYXQiOjE2ODUyMzI5NjEsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJST0xFX0FETUlOIn1dfQ.ZuEgK3QlVWWk3N_vyqv_HZz--fqjGElE2Ulm7LJjb6c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"filters\": null,\r\n    \"sorts\": [\r\n        {\r\n            \"key\": \"price\",\r\n            \"direction\": \"ASC\"\r\n        }\r\n    ],\r\n    \"page\": null,\r\n    \"size\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8888/rooms/search",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"rooms",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Room",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ5dWRpYWRtaW5AZ21haWwuY29tIiwiZXhwIjoxNjg1MjI0ODc2LCJpYXQiOjE2ODUxODg4NzYsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJST0xFX0FETUlOIn1dfQ.E6UC8UcFgzFHYWWHc6Y4ROx0ztoANFafwMY2ooT-B58",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\" : \"single\",\r\n    \"price\" : 350000,\r\n    \"status\" : \"available\",\r\n    \"floorLevel\" : 1,\r\n    \"roomNumber\" : 6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8888/rooms",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"rooms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Facility",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roomId\" : 1,\r\n    \"facilityId\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8888/rooms/add-facility",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"rooms",
+								"add-facility"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservation",
+			"item": [
+				{
+					"name": "New Reservation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ5dWRpd2lkaWF3YW42QGdtYWlsLmNvbSIsImV4cCI6MTY4NTI3NjI5NiwiaWF0IjoxNjg1MjQwMjk2LCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9VU0VSIn1dfQ.8f1lo4yqiyZLmzgKBPTJC9F63QqHSXbhKQuER5l7SkM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roomId\" : 1,\r\n    \"startDate\" : \"2023-08-07\",\r\n    \"endDate\" : \"2023-08-08\",\r\n    \"facilities\" : [\r\n        {\r\n            \"id\" : 1,\r\n            \"name\" : \"BREAKFAST\"\r\n        },\r\n        {\r\n            \"id\" : 2,\r\n            \"name\" : \"EXTRA FOOD\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8888/reservations/reserve",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"reservations",
+								"reserve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All Reservations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8888/reservations",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"reservations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Self Reservations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8888/reservations/self",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"reservations",
+								"self"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check In",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"reservationId\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8888/reservations/check-in",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"reservations",
+								"check-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Out",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"reservationId\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8888/reservations/check-out",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"reservations",
+								"check-out"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pay",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_user}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"reservationId\" : 1,\r\n    \"type\" : \"BANK_TRANSFER\",\r\n    \"transferProof\" : \"123456789\",\r\n    \"paymentAccountId\" : \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8888/payments/pay",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"payments",
+								"pay"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment & Account",
+			"item": [
+				{
+					"name": "List Account Payment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8888/payments/accounts",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"payments",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Payments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_user}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8888/payments",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Account Payment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Yudi Widiawan\",\r\n    \"accountNumber\" : 130001827312736\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8888/payments/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"payments",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Confirm Payment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8888/payments/confirm?id=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"payments",
+								"confirm"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"Yudi\",\r\n    \"last_name\" : \"Employee\",\r\n    \"email\" : \"yudiemployee@gmail.com\",\r\n    \"password\" : \"passwordku2023\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/api/v1/auth/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"yudiwidiawan6@gmail.com\",\r\n    \"password\" : \"passwordku2023\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/api/v1/auth/authenticate",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ5dWRpd2lkaWF3YW42QGdtYWlsLmNvbSIsImV4cCI6MTY4NTIwNzg0MiwiaWF0IjoxNjg1MTcxODQyLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XX0.rMZDPnxob08rtrmi4uyLUFteCGJ__tscAuI84LyfOh4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8889/api/v1/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8889",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
